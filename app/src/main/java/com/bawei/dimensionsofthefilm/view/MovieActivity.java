@@ -17,5 +17,8 @@ public class MovieActivity extends BaseActivity {
     @Override
     protected void initView() {
 
+        //刚写得
+
+
     }
 }
