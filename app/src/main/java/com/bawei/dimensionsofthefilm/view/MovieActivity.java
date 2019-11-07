@@ -21,6 +21,9 @@ public class MovieActivity extends BaseActivity {
 
     @BindView(R.id.movie_vp)
     ViewPager movieVp;
+    @BindView(R.id.movie_rg)
+    RadioGroup movieRg;
+
     private ArrayList<Fragment> list = new ArrayList<>();
 
     @Override
@@ -47,8 +50,26 @@ public class MovieActivity extends BaseActivity {
                 return list.size();
             }
         });
-    }
 
+        movieRg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.movie_btn1:
+                        movieVp.setCurrentItem(0);
+                        break;
+                    case R.id.movie_btn2:
+                        movieVp.setCurrentItem(1);
+                        break;
+                    case R.id.movie_btn3:
+                        movieVp.setCurrentItem(2);
+                        break;
+
+                }
+            }
+        });
+
+    }
 
 
 
