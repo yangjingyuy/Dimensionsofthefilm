@@ -34,7 +34,7 @@ public class MovieActivity extends BaseActivity {
     @Override
     protected void initView() {
 
-        //孔平平写的
+
         //添加fragemnt
         list.add(new MovieFragment());
         list.add(new CinemaFragment());

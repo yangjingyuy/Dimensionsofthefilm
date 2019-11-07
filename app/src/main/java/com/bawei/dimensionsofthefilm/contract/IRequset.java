@@ -1,12 +1,15 @@
 package com.bawei.dimensionsofthefilm.contract;
 
+import com.bawei.dimensionsofthefilm.model.Banner;
 import com.bawei.dimensionsofthefilm.model.Data;
 
+import java.util.List;
 import java.util.Map;
 
 import io.reactivex.Observable;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 
@@ -18,4 +21,8 @@ public interface IRequset {
     @FormUrlEncoded
     @POST("user/v2/login")
     Observable<Data<Long>> login(@Header("email")String email,@Header("pwd")String pwd);
+    //查询banner
+    @GET("tool/v2/banner")
+    Observable<Data<List<Banner>>> banner();
+
 }
