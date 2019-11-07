@@ -1,6 +1,5 @@
 package com.bawei.dimensionsofthefilm.view;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -15,7 +14,6 @@ import com.bawei.dimensionsofthefilm.fragment.MyFragment;
 import java.util.ArrayList;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class MovieActivity extends BaseActivity {
 
@@ -28,7 +26,7 @@ public class MovieActivity extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_login;
+        return R.layout.activity_hom;
     }
 
     @Override
