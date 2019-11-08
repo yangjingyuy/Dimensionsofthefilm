@@ -24,4 +24,7 @@ public class LocationFragment extends BaseFragmente {
     public void initView() {
 
     }
+
+
+
 }

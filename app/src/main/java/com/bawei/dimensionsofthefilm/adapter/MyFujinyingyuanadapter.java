@@ -41,7 +41,7 @@ public class MyFujinyingyuanadapter extends RecyclerView.Adapter<MyFujinyingyuan
 
     @Override
     public void onBindViewHolder(@NonNull MyFujinyingyuanadapter.myViewHolder myViewHolder, int i) {
-      //  Glide.with(context).load(list.get(i).logo).into(myViewHolder.imageView5);
+       Glide.with(context).load(list.get(i).logo).into(myViewHolder.imageView5);
         myViewHolder.textView5.setText(list.get(i).address);
         myViewHolder.textView6.setText(list.get(i).name);
         myViewHolder.textView7.setText(list.get(i).followCinema);

@@ -44,10 +44,14 @@ public interface IRequset {
     @GET("movie/v2/findReleaseMovieList")
     Observable<Data<List<Zhengzaishangying>>> zhengzaishangying(@Query("page")int page, @Query("count")int count);
     //查询推荐影院信息
-    @GET("cinema1/findRecommendCinemas")
+    @GET("cinema/v1/findRecommendCinemas")
     Observable<Data<List<Recommend>>> findRecommendCinemas(@Query("page")int page, @Query("count")int count);
     //查询附近影院
     @GET("cinema/v1/findNearbyCinemas")
     Observable<Data<List<Fujin>>> fujinyingyuan(@Query("page")int page, @Query("count")int count);
+
+
+
+
 
 }
