@@ -55,43 +55,38 @@ public class MovieFragment extends BaseFragmente {
 
     @Override
     public View getLayoutID(LayoutInflater inflater, ViewGroup container) {
-        view = inflater.inflate(R.layout.movie_layout, null, false);
-        recyclerView2 = view.findViewById(R.id.recyer_view2);
-        recyclerView3 = view.findViewById(R.id.recyer_view3);
-        return view;
+        return  inflater.inflate(R.layout.movie_layout, null, false);
     }
 
     @Override
     public void initView() {
+        recyclerView2 = getView().findViewById(R.id.recyer_view2);
+        recyclerView3 = getView().findViewById(R.id.recyer_view3);
         //轮播图
         BannerPresenter bannerPresenter = new BannerPresenter(new bannerColl());
-        bannerPresenter.reqsuetData();
         //热门电影
         HotPresenter hotPresenter = new HotPresenter(new hotColl());
-        hotPresenter.reqsuetData(1, 5);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        recyHot.setLayoutManager(linearLayoutManager);
         hotAdapter = new HotAdapter(getContext());
         recyHot.setAdapter(hotAdapter);
-        recyHot.setLayoutManager(linearLayoutManager);
-
-
         //即将上市电影
         jijiangshangsgiPresenter = new JijiangshangsgiPresenter(new jijiang());
-                jijiangshangsgiPresenter.reqsuetData(1,5);
-
         linearLayoutManager1 = new LinearLayoutManager(getContext());
+        recyclerView2.setLayoutManager(linearLayoutManager1);
         myrecyclview = new Myrecyclview(getContext());
-       recyclerView2.setAdapter(myrecyclview);
-       recyclerView2.setLayoutManager(linearLayoutManager1);
-
+        recyclerView2.setAdapter(myrecyclview);
        //正在上市电影
-
         zhengzaishangyingPresenter = new ZhengzaishangyingPresenter(new zhengzaishangshi());
-        zhengzaishangyingPresenter.reqsuetData(1,5);
         linearLayoutManager2 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
-        myrecyview3adapter = new Myrecyview3adapter(getContext());
-        recyclerView3.setAdapter(myrecyclview);
         recyclerView3.setLayoutManager(linearLayoutManager2);
+        myrecyview3adapter = new Myrecyview3adapter(getContext());
+        recyclerView3.setAdapter(myrecyview3adapter);
+        //请求
+        bannerPresenter.reqsuetData();
+        hotPresenter.reqsuetData(1, 5);
+        jijiangshangsgiPresenter.reqsuetData(1,5);
+        zhengzaishangyingPresenter.reqsuetData(1,5);
     }
 
     @Override
