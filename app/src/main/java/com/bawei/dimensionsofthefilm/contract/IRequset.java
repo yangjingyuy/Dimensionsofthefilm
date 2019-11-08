@@ -42,4 +42,5 @@ public interface IRequset {
     @GET("movie/v2/findReleaseMovieList")
 
     Observable<Data<List<Zhengzaishangying>>> zhengzaishangying(@Query("page")int page, @Query("count")int count);
+
 }
