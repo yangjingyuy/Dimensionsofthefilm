@@ -1,6 +1,7 @@
 package com.bawei.dimensionsofthefilm.adapter;
 
 import android.content.Context;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,7 +14,10 @@ import com.bawei.dimensionsofthefilm.R;
 import com.bawei.dimensionsofthefilm.model.Jijiangshangying;
 import com.bumptech.glide.Glide;
 
+import java.text.BreakIterator;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Myrecyclview extends RecyclerView.Adapter<Myrecyclview.myViewHolder> {
@@ -40,7 +44,7 @@ public class Myrecyclview extends RecyclerView.Adapter<Myrecyclview.myViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Myrecyclview.myViewHolder myViewHolder, int i) {
+    public void onBindViewHolder(@NonNull myViewHolder myViewHolder, int i) {
         Glide.with(context).load(list.get(i).imageUrl)
                 .skipMemoryCache(true)
                 .placeholder(R.mipmap.ic_launcher)
@@ -48,7 +52,10 @@ public class Myrecyclview extends RecyclerView.Adapter<Myrecyclview.myViewHolder
                 .into(myViewHolder.imageView);
 
         myViewHolder.textView.setText(list.get(i).name);
-        myViewHolder.text_time.setText(String.valueOf(list.get(i).releaseTime));
+        Date date = new Date(list.get(i).releaseTime);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        myViewHolder.text_time.setText(simpleDateFormat.format(date)+"上映");
+        myViewHolder.text_guankan.setText(list.get(i).wantSeeNum+"人想看");
     }
 
     @Override
@@ -58,14 +65,16 @@ public class Myrecyclview extends RecyclerView.Adapter<Myrecyclview.myViewHolder
 
     class myViewHolder extends RecyclerView.ViewHolder{
 
-        private final TextView textView,text_time;
+        private final TextView textView,text_time,text_guankan;
         private final ImageView imageView;
+
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.text_name);
             imageView = itemView.findViewById(R.id.imager);
             text_time = itemView.findViewById(R.id.text_time);
+            text_guankan = itemView.findViewById(R.id.text_guankan);
         }
     }
 }

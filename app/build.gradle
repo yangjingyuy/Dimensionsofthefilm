@@ -41,6 +41,7 @@ dependencies {
     implementation 'com.jcodecraeer:xrecyclerview:1.5.9'
 
     //recyclerview依赖
+    //noinspection GradleCompatible
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     // retrofit注解+封装okhttp依赖
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
@@ -62,10 +63,13 @@ dependencies {
     // ButterKnife
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-
-
+    //fresco依赖     //图片框架
+    implementation 'com.facebook.fresco:fresco:1.11.0'
+    //noinspection GradleCompatible
     implementation 'com.android.support:design:27.1.1'
+    //noinspection GradleCompatible
     implementation 'com.android.support:support-v4:27.1.1'
+
 
 
 }
