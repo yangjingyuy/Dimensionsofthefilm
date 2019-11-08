@@ -180,8 +180,8 @@
                     android:layout_marginLeft="20dp"
 
                     />
-
             </RelativeLayout>
+
 
             <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"

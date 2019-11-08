@@ -3,6 +3,7 @@ package com.bawei.dimensionsofthefilm.fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,7 @@ public class RecommendFragment extends BaseFragmente {
     private View view;
     private RecommendAdapter recommendAdapter;
 
+
     @Override
     public View getLayoutID(LayoutInflater inflater, ViewGroup container) {
         view = inflater.inflate(R.layout.recommend_layout, null, false);
@@ -40,22 +42,27 @@ public class RecommendFragment extends BaseFragmente {
     @Override
     public void initView() {
         //查询推荐影院信息
-        RecommendPresenter recommendPresenter=new RecommendPresenter(new cecomColl());
-        recommendPresenter.reqsuetData(1,10);
+       RecommendPresenter recommendPresenter=new RecommendPresenter(new cecomColl());
+       recommendPresenter.reqsuetData(1,10);
         //推荐影院信息 适配器
-        recommendAdapter = new RecommendAdapter(getContext());
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
-        recommemdRecyc.setLayoutManager(linearLayoutManager);
+       LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
+       recommemdRecyc.setLayoutManager(linearLayoutManager);
+        recommendAdapter = new RecommendAdapter(getActivity());
         recommemdRecyc.setAdapter(recommendAdapter);
+
+
 
 
     }
     //查询推荐影院信息
     class cecomColl implements DataColl<List<Recommend>>{
+
         @Override
         public void suuess(List<Recommend> rese) {
+            Log.i("aaa", "suuess: "+rese);
             recommendAdapter.addAll(rese);
             recommendAdapter.notifyDataSetChanged();
+
         }
 
         @Override
@@ -63,19 +70,5 @@ public class RecommendFragment extends BaseFragmente {
 
         }
     }
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder = ButterKnife.bind(this, rootView);
-        return rootView;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
+    
 }

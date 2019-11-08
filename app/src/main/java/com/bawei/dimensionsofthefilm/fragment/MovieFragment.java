@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bawei.dimensionsofthefilm.R;
 import com.bawei.dimensionsofthefilm.adapter.HotAdapter;
@@ -24,6 +25,7 @@ import com.bawei.dimensionsofthefilm.presenter.HotPresenter;
 import com.bawei.dimensionsofthefilm.presenter.JijiangshangsgiPresenter;
 import com.bawei.dimensionsofthefilm.presenter.ZhengzaishangyingPresenter;
 import com.bumptech.glide.Glide;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.stx.xhb.xbanner.XBanner;
 
 import java.util.List;
@@ -39,9 +41,10 @@ public class MovieFragment extends BaseFragmente {
 
     @BindView(R.id.xbander)
     XBanner xbander;
-    Unbinder unbinder;
     @BindView(R.id.recy_hot)
     RecyclerView recyHot;
+    Unbinder unbinder;
+
     private View view;
     private HotAdapter hotAdapter;
     private RecyclerView recyclerView2;
@@ -55,7 +58,7 @@ public class MovieFragment extends BaseFragmente {
 
     @Override
     public View getLayoutID(LayoutInflater inflater, ViewGroup container) {
-        return  inflater.inflate(R.layout.movie_layout, null, false);
+        return inflater.inflate(R.layout.movie_layout, null, false);
     }
 
     @Override
@@ -66,7 +69,7 @@ public class MovieFragment extends BaseFragmente {
         BannerPresenter bannerPresenter = new BannerPresenter(new bannerColl());
         //热门电影
         HotPresenter hotPresenter = new HotPresenter(new hotColl());
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyHot.setLayoutManager(linearLayoutManager);
         hotAdapter = new HotAdapter(getContext());
         recyHot.setAdapter(hotAdapter);
@@ -76,32 +79,28 @@ public class MovieFragment extends BaseFragmente {
         recyclerView2.setLayoutManager(linearLayoutManager1);
         myrecyclview = new Myrecyclview(getContext());
         recyclerView2.setAdapter(myrecyclview);
-       //正在上市电影
+        //正在上市电影
         zhengzaishangyingPresenter = new ZhengzaishangyingPresenter(new zhengzaishangshi());
-        linearLayoutManager2 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        linearLayoutManager2 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView3.setLayoutManager(linearLayoutManager2);
         myrecyview3adapter = new Myrecyview3adapter(getContext());
         recyclerView3.setAdapter(myrecyview3adapter);
         //请求
         bannerPresenter.reqsuetData();
         hotPresenter.reqsuetData(1, 5);
-        jijiangshangsgiPresenter.reqsuetData(1,5);
-        zhengzaishangyingPresenter.reqsuetData(1,5);
+        jijiangshangsgiPresenter.reqsuetData(1, 5);
+        zhengzaishangyingPresenter.reqsuetData(1, 5);
+
+        //点击
+        recyHot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "点击了", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder = ButterKnife.bind(this, rootView);
-        return rootView;
-    }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
 
     //轮播图
     class bannerColl implements DataColl<List<Banner>> {
@@ -123,10 +122,12 @@ public class MovieFragment extends BaseFragmente {
 
         }
     }
+
     //热门电影
     class hotColl implements DataColl<List<Hot>> {
         @Override
         public void suuess(List<Hot> rese) {
+
             hotAdapter.addAll(rese);
             hotAdapter.notifyDataSetChanged();
 
@@ -139,28 +140,29 @@ public class MovieFragment extends BaseFragmente {
     }
 
 
-      //即将上市电影
-    class jijiang implements DataColl<List<Jijiangshangying>>{
+    //即将上市电影
+    class jijiang implements DataColl<List<Jijiangshangying>> {
 
-          @Override
-          public void suuess(List<Jijiangshangying> rese) {
-              myrecyclview.addAll(rese);
-              myrecyclview.notifyDataSetChanged();
-          }
+        @Override
+        public void suuess(List<Jijiangshangying> rese) {
+            myrecyclview.addAll(rese);
+            myrecyclview.notifyDataSetChanged();
+        }
 
-          @Override
-          public void failure(Data data) {
+        @Override
+        public void failure(Data data) {
 
-          }
-      }
+        }
+    }
 
     //正在上市电影
-   class zhengzaishangshi implements DataColl<List<Zhengzaishangying>>{
+    class zhengzaishangshi implements DataColl<List<Zhengzaishangying>> {
 
         @Override
         public void suuess(List<Zhengzaishangying> rese) {
-                 myrecyview3adapter.addAll(rese);
-                 myrecyview3adapter.notifyDataSetChanged();
+            myrecyview3adapter.addAll(rese);
+            myrecyview3adapter.notifyDataSetChanged();
+
         }
 
         @Override
