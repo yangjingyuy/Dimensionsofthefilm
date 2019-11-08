@@ -74,7 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:text="即将上映"
+                    android:text="正在热映"
                     android:textColor="#ffffff"
                     android:layout_toRightOf="@+id/hot_showing"
                     android:layout_marginLeft="20dp"
@@ -117,7 +117,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:text="热门电影"
+                    android:text="即将上映"
                     android:textColor="#ffffff"
                     android:layout_toRightOf="@+id/show"
                     android:layout_marginLeft="20dp"
@@ -136,12 +136,60 @@
 
             </RelativeLayout>
 
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+
+                android:id="@+id/recyer_view2"
+                ></android.support.v7.widget.RecyclerView>
+
+
+            <RelativeLayout
+                android:background="#1c2243"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <ImageView
+                    android:layout_marginLeft="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/hot"
+                    android:id="@+id/hot"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="热门电影"
+                    android:textColor="#ffffff"
+                    android:layout_toRightOf="@+id/hot"
+                    android:layout_marginLeft="20dp"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="25dp"
+                    android:text="更多"
+                    android:textColor="#ffffff"
+                    android:layout_marginLeft="20dp"
+
+                    />
+
+            </RelativeLayout>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recyer_view3"
+                ></android.support.v7.widget.RecyclerView>
 
 
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
-
 
 
 
