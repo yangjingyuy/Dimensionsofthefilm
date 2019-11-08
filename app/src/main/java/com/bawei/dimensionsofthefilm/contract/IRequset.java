@@ -2,6 +2,7 @@ package com.bawei.dimensionsofthefilm.contract;
 
 import com.bawei.dimensionsofthefilm.model.Banner;
 import com.bawei.dimensionsofthefilm.model.Data;
+import com.bawei.dimensionsofthefilm.model.Fujin;
 import com.bawei.dimensionsofthefilm.model.Hot;
 import com.bawei.dimensionsofthefilm.model.Jijiangshangying;
 import com.bawei.dimensionsofthefilm.model.Zhengzaishangying;
@@ -42,4 +43,11 @@ public interface IRequset {
     @GET("movie/v2/findReleaseMovieList")
 
     Observable<Data<List<Zhengzaishangying>>> zhengzaishangying(@Query("page")int page, @Query("count")int count);
+
+      //查询附近影院
+
+      @GET("cinema/v1/findNearbyCinemas")
+     Observable<Data<List<Fujin>>> fujinyingyuan(@Query("page")int page,@Query("count")int count);
+
+
 }
