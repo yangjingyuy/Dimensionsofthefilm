@@ -10,13 +10,19 @@ import android.widget.ImageView;
 
 import com.bawei.dimensionsofthefilm.R;
 import com.bawei.dimensionsofthefilm.adapter.HotAdapter;
+import com.bawei.dimensionsofthefilm.adapter.Myrecyclview;
+import com.bawei.dimensionsofthefilm.adapter.Myrecyview3adapter;
 import com.bawei.dimensionsofthefilm.base.BaseFragmente;
 import com.bawei.dimensionsofthefilm.contract.DataColl;
 import com.bawei.dimensionsofthefilm.model.Banner;
 import com.bawei.dimensionsofthefilm.model.Data;
 import com.bawei.dimensionsofthefilm.model.Hot;
+import com.bawei.dimensionsofthefilm.model.Jijiangshangying;
+import com.bawei.dimensionsofthefilm.model.Zhengzaishangying;
 import com.bawei.dimensionsofthefilm.presenter.BannerPresenter;
 import com.bawei.dimensionsofthefilm.presenter.HotPresenter;
+import com.bawei.dimensionsofthefilm.presenter.JijiangshangsgiPresenter;
+import com.bawei.dimensionsofthefilm.presenter.ZhengzaishangyingPresenter;
 import com.bumptech.glide.Glide;
 import com.stx.xhb.xbanner.XBanner;
 
@@ -38,10 +44,20 @@ public class MovieFragment extends BaseFragmente {
     RecyclerView recyHot;
     private View view;
     private HotAdapter hotAdapter;
+    private RecyclerView recyclerView2;
+    private RecyclerView recyclerView3;
+    private JijiangshangsgiPresenter jijiangshangsgiPresenter;
+    private LinearLayoutManager linearLayoutManager1;
+    private Myrecyclview myrecyclview;
+    private ZhengzaishangyingPresenter zhengzaishangyingPresenter;
+    private LinearLayoutManager linearLayoutManager2;
+    private Myrecyview3adapter myrecyview3adapter;
 
     @Override
     public View getLayoutID(LayoutInflater inflater, ViewGroup container) {
         view = inflater.inflate(R.layout.movie_layout, null, false);
+        recyclerView2 = view.findViewById(R.id.recyer_view2);
+        recyclerView3 = view.findViewById(R.id.recyer_view3);
         return view;
     }
 
@@ -59,8 +75,23 @@ public class MovieFragment extends BaseFragmente {
         recyHot.setLayoutManager(linearLayoutManager);
 
 
+        //即将上市电影
+        jijiangshangsgiPresenter = new JijiangshangsgiPresenter(new jijiang());
+                jijiangshangsgiPresenter.reqsuetData(1,5);
 
+        linearLayoutManager1 = new LinearLayoutManager(getContext());
+        myrecyclview = new Myrecyclview(getContext());
+       recyclerView2.setAdapter(myrecyclview);
+       recyclerView2.setLayoutManager(linearLayoutManager1);
 
+       //正在上市电影
+
+        zhengzaishangyingPresenter = new ZhengzaishangyingPresenter(new zhengzaishangshi());
+        zhengzaishangyingPresenter.reqsuetData(1,5);
+        linearLayoutManager2 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        myrecyview3adapter = new Myrecyview3adapter(getContext());
+        recyclerView3.setAdapter(myrecyclview);
+        recyclerView3.setLayoutManager(linearLayoutManager2);
     }
 
     @Override
@@ -111,4 +142,37 @@ public class MovieFragment extends BaseFragmente {
 
         }
     }
+
+
+      //即将上市电影
+    class jijiang implements DataColl<List<Jijiangshangying>>{
+
+          @Override
+          public void suuess(List<Jijiangshangying> rese) {
+              myrecyclview.addAll(rese);
+              myrecyclview.notifyDataSetChanged();
+          }
+
+          @Override
+          public void failure(Data data) {
+
+          }
+      }
+
+    //正在上市电影
+   class zhengzaishangshi implements DataColl<List<Zhengzaishangying>>{
+
+        @Override
+        public void suuess(List<Zhengzaishangying> rese) {
+                 myrecyview3adapter.addAll(rese);
+                 myrecyview3adapter.notifyDataSetChanged();
+        }
+
+        @Override
+        public void failure(Data data) {
+
+        }
+    }
+
+
 }
