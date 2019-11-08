@@ -48,6 +48,7 @@ public class Myrecyclview extends RecyclerView.Adapter<Myrecyclview.myViewHolder
                 .into(myViewHolder.imageView);
 
         myViewHolder.textView.setText(list.get(i).name);
+        myViewHolder.text_time.setText(String.valueOf(list.get(i).releaseTime));
     }
 
     @Override
@@ -57,14 +58,14 @@ public class Myrecyclview extends RecyclerView.Adapter<Myrecyclview.myViewHolder
 
     class myViewHolder extends RecyclerView.ViewHolder{
 
-        private final TextView textView;
+        private final TextView textView,text_time;
         private final ImageView imageView;
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.text_name);
             imageView = itemView.findViewById(R.id.imager);
-
+            text_time = itemView.findViewById(R.id.text_time);
         }
     }
 }

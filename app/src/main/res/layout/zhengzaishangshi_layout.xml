@@ -34,6 +34,18 @@
                 android:layout_below="@+id/image4"
                 android:layout_marginTop="20dp"
                 />
+
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:text="购票"
+                android:textColor="#ffffff"
+                android:id="@+id/rm_gp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/text_name4"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/buttonyuan"
+                />
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>
