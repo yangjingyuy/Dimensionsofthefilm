@@ -3,6 +3,7 @@ package com.bawei.dimensionsofthefilm.fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -91,13 +92,6 @@ public class MovieFragment extends BaseFragmente {
         jijiangshangsgiPresenter.reqsuetData(1, 5);
         zhengzaishangyingPresenter.reqsuetData(1, 5);
 
-        //点击
-        recyHot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "点击了", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
 
