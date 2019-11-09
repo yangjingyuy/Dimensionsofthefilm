@@ -68,7 +68,7 @@ public class MovieFragment extends BaseFragmente {
         recyclerView3 = getView().findViewById(R.id.recyer_view3);
         //轮播图
         BannerPresenter bannerPresenter = new BannerPresenter(new bannerColl());
-        //热门电影
+        //正在热映电影
         HotPresenter hotPresenter = new HotPresenter(new hotColl());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyHot.setLayoutManager(linearLayoutManager);
@@ -94,8 +94,6 @@ public class MovieFragment extends BaseFragmente {
 
     }
 
-
-
     //轮播图
     class bannerColl implements DataColl<List<Banner>> {
         @Override
@@ -117,13 +115,20 @@ public class MovieFragment extends BaseFragmente {
         }
     }
 
-    //热门电影
+   //正在热映电影
     class hotColl implements DataColl<List<Hot>> {
         @Override
         public void suuess(List<Hot> rese) {
 
             hotAdapter.addAll(rese);
             hotAdapter.notifyDataSetChanged();
+            //正在热映电影
+            hotAdapter.setListener(new HotAdapter.OnItemClickListener() {
+                @Override
+                public void onClick(View view, int position) {
+                    Toast.makeText(getContext(), "点击了"+position, Toast.LENGTH_SHORT).show();
+                }
+            });
 
         }
 
@@ -141,6 +146,14 @@ public class MovieFragment extends BaseFragmente {
         public void suuess(List<Jijiangshangying> rese) {
             myrecyclview.addAll(rese);
             myrecyclview.notifyDataSetChanged();
+            //点击
+            myrecyclview.setListenerSying(new Myrecyclview.OnItemClickListener() {
+                @Override
+                public void onClick(View view, int position) {
+                    Toast.makeText(getContext(), "点击了", Toast.LENGTH_SHORT).show();
+                }
+            });
+
         }
 
         @Override
@@ -156,6 +169,13 @@ public class MovieFragment extends BaseFragmente {
         public void suuess(List<Zhengzaishangying> rese) {
             myrecyview3adapter.addAll(rese);
             myrecyview3adapter.notifyDataSetChanged();
+            //点击
+            myrecyview3adapter.setListenerhot(new Myrecyview3adapter.OnItemClickListener() {
+                @Override
+                public void onClick(View view, int position) {
+                    Toast.makeText(getContext(), "点击了", Toast.LENGTH_SHORT).show();
+                }
+            });
 
         }
 

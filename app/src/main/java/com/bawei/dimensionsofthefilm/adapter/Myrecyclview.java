@@ -44,7 +44,7 @@ public class Myrecyclview extends RecyclerView.Adapter<Myrecyclview.myViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull myViewHolder myViewHolder, int i) {
+    public void onBindViewHolder(@NonNull myViewHolder myViewHolder, final int i) {
         Glide.with(context).load(list.get(i).imageUrl)
                 .skipMemoryCache(true)
                 .placeholder(R.mipmap.ic_launcher)
@@ -56,6 +56,13 @@ public class Myrecyclview extends RecyclerView.Adapter<Myrecyclview.myViewHolder
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
         myViewHolder.text_time.setText(simpleDateFormat.format(date)+"上映");
         myViewHolder.text_guankan.setText(list.get(i).wantSeeNum+"人想看");
+        //setOnClickListener
+        myViewHolder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listenerSying.onClick(v,i);
+            }
+        });
     }
 
     @Override
@@ -76,6 +83,17 @@ public class Myrecyclview extends RecyclerView.Adapter<Myrecyclview.myViewHolder
             text_time = itemView.findViewById(R.id.text_time);
             text_guankan = itemView.findViewById(R.id.text_guankan);
         }
+    }
+
+    private OnItemClickListener listenerSying;
+
+    public void setListenerSying(OnItemClickListener listenerSying) {
+        this.listenerSying = listenerSying;
+    }
+
+    //定义接口
+    public interface OnItemClickListener{
+        void onClick(View view,int position);
     }
 }
 
