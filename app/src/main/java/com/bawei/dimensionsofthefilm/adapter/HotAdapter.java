@@ -42,10 +42,17 @@ public class HotAdapter extends RecyclerView.Adapter<HotAdapter.HotHoder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HotHoder hotHoder, int i) {
+    public void onBindViewHolder(@NonNull HotHoder hotHoder, final int i) {
         Hot hot = list.get(i);
         Glide.with(context).load(hot.imageUrl).into(hotHoder.hot_img);
         hotHoder.hot_name.setText(list.get(i).name);
+        //setOnClickListener
+        hotHoder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onClick(v,i);
+            }
+        });
 
     }
 
@@ -60,8 +67,19 @@ public class HotAdapter extends RecyclerView.Adapter<HotAdapter.HotHoder> {
 
         public HotHoder(@NonNull View itemView) {
             super(itemView);
+
             hot_img = itemView.findViewById(R.id.hot_img);
             hot_name = itemView.findViewById(R.id.hot_name);
         }
+    }
+    private OnItemClickListener listener;
+
+    public void setListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
+    //定义接口
+    public interface OnItemClickListener{
+        void onClick(View view,int position);
     }
 }

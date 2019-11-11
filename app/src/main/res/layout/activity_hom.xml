@@ -8,43 +8,46 @@
     tools:context=".view.MovieActivity">
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/dp_0"
         android:layout_weight="9"
         android:id="@+id/movie_vp"
         ></android.support.v4.view.ViewPager>
     <RadioGroup
         android:background="#1c2243"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/dp_0"
         android:layout_weight="1"
         android:orientation="horizontal"
         android:id="@+id/movie_rg"
+
         >
         <RadioButton
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_gravity="center_vertical"
             android:id="@+id/movie_btn1"
             android:button="@null"
            android:drawableTop="@drawable/movie"
             />
         <RadioButton
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/movie_btn2"
+            android:layout_gravity="center_vertical"
             android:button="@null"
             android:drawableTop="@drawable/cinema"
 
 
             />
         <RadioButton
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/movie_btn3"
             android:button="@null"
-
+            android:layout_gravity="center_vertical"
             android:drawableTop="@drawable/my"
             />
 

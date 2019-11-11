@@ -40,10 +40,16 @@ public class Myrecyview3adapter extends RecyclerView.Adapter<Myrecyview3adapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Myrecyview3adapter.myViewHolder myViewHolder, int i) {
+    public void onBindViewHolder(@NonNull Myrecyview3adapter.myViewHolder myViewHolder, final int i) {
 
         Glide.with(context).load(list.get(i).imageUrl).into(myViewHolder.imageView4);
         myViewHolder.textView4.setText(list.get(i).director);
+        myViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listenerhotmy.onClick(v,i);
+            }
+        });
     }
 
     @Override
@@ -61,5 +67,15 @@ public class Myrecyview3adapter extends RecyclerView.Adapter<Myrecyview3adapter.
             textView4 = itemView.findViewById(R.id.text_name4);
             imageView4 = itemView.findViewById(R.id.image4);
         }
+    }
+    private  OnItemClickListener listenerhotmy;
+
+    public void setListenerhotmy(OnItemClickListener listenerhotmy) {
+        this.listenerhotmy = listenerhotmy;
+    }
+
+    //定义接口
+    public interface OnItemClickListener{
+        void onClick(View view,int position);
     }
 }

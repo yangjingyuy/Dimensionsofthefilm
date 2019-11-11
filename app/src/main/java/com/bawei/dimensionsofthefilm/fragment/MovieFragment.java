@@ -1,5 +1,6 @@
 package com.bawei.dimensionsofthefilm.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -25,6 +26,9 @@ import com.bawei.dimensionsofthefilm.presenter.BannerPresenter;
 import com.bawei.dimensionsofthefilm.presenter.HotPresenter;
 import com.bawei.dimensionsofthefilm.presenter.JijiangshangsgiPresenter;
 import com.bawei.dimensionsofthefilm.presenter.ZhengzaishangyingPresenter;
+import com.bawei.dimensionsofthefilm.view.HotActivity;
+import com.bawei.dimensionsofthefilm.view.HotShowingActivity;
+import com.bawei.dimensionsofthefilm.view.ShowActivity;
 import com.bumptech.glide.Glide;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.stx.xhb.xbanner.XBanner;
@@ -68,7 +72,7 @@ public class MovieFragment extends BaseFragmente {
         recyclerView3 = getView().findViewById(R.id.recyer_view3);
         //轮播图
         BannerPresenter bannerPresenter = new BannerPresenter(new bannerColl());
-        //热门电影
+        //正在热映电影
         HotPresenter hotPresenter = new HotPresenter(new hotColl());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyHot.setLayoutManager(linearLayoutManager);
@@ -94,8 +98,6 @@ public class MovieFragment extends BaseFragmente {
 
     }
 
-
-
     //轮播图
     class bannerColl implements DataColl<List<Banner>> {
         @Override
@@ -117,13 +119,31 @@ public class MovieFragment extends BaseFragmente {
         }
     }
 
-    //热门电影
+   //正在热映电影
     class hotColl implements DataColl<List<Hot>> {
         @Override
-        public void suuess(List<Hot> rese) {
+        public void suuess(final List<Hot> rese) {
 
             hotAdapter.addAll(rese);
             hotAdapter.notifyDataSetChanged();
+            //正在热映电影
+            hotAdapter.setListener(new HotAdapter.OnItemClickListener() {
+
+
+                private int movieId;
+
+                @Override
+                public void onClick(View view, int position) {
+                    for (int i = 0; i < rese.size(); i++) {
+                        movieId = rese.get(position).movieId;
+                    }
+                   // Toast.makeText(getContext(), "点击了"+hot, Toast.LENGTH_SHORT).show();
+
+                    Intent intent=new Intent(getContext(), HotShowingActivity.class);
+                    intent.putExtra("hotshowing",movieId);
+                    startActivity(intent);
+                }
+            });
 
         }
 
@@ -134,13 +154,31 @@ public class MovieFragment extends BaseFragmente {
     }
 
 
-    //即将上市电影
+    //即将上映电影
     class jijiang implements DataColl<List<Jijiangshangying>> {
 
+        private int movieId;
+
         @Override
-        public void suuess(List<Jijiangshangying> rese) {
+        public void suuess(final List<Jijiangshangying> rese) {
             myrecyclview.addAll(rese);
             myrecyclview.notifyDataSetChanged();
+
+            //点击
+            myrecyclview.setListenerSying(new Myrecyclview.OnItemClickListener() {
+                @Override
+                public void onClick(View view, int position) {
+                    for (int i = 0; i <rese.size() ; i++) {
+                        movieId = rese.get(position).movieId;
+                    }
+                   // Toast.makeText(getContext(), "点击了"+movieId, Toast.LENGTH_SHORT).show();
+                    Intent intent=new Intent(getContext(), ShowActivity.class);
+                    intent.putExtra("show",movieId);
+                    startActivity(intent);
+
+                }
+            });
+
         }
 
         @Override
@@ -148,14 +186,31 @@ public class MovieFragment extends BaseFragmente {
 
         }
     }
-
     //正在上市电影
     class zhengzaishangshi implements DataColl<List<Zhengzaishangying>> {
 
         @Override
-        public void suuess(List<Zhengzaishangying> rese) {
+        public void suuess(final List<Zhengzaishangying> rese) {
             myrecyview3adapter.addAll(rese);
             myrecyview3adapter.notifyDataSetChanged();
+            //点击
+            myrecyview3adapter.setListenerhotmy(new Myrecyview3adapter.OnItemClickListener() {
+
+
+                private int movieId;
+
+                @Override
+                public void onClick(View view, int position) {
+                    for (int i = 0; i < rese.size(); i++) {
+                        movieId = rese.get(position).movieId;
+                    }
+                    Toast.makeText(getContext(), "点击了"+movieId, Toast.LENGTH_SHORT).show();
+                    Intent intent=new Intent(getContext(), HotActivity.class);
+                    intent.putExtra("hot",movieId);
+                    startActivity(intent);
+
+                }
+            });
 
         }
 

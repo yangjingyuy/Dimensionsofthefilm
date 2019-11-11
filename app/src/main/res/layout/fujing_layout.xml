@@ -7,10 +7,10 @@
 
      <android.support.v7.widget.CardView
          android:layout_width="match_parent"
-         android:layout_height="180dp"
-         android:layout_marginTop="20dp"
-         android:layout_marginLeft="30dp"
-         android:layout_marginRight="30dp"
+         android:layout_height="@dimen/dp_120"
+         android:layout_marginTop="@dimen/dp_10"
+         android:layout_marginLeft="@dimen/dp_10"
+         android:layout_marginRight="@dimen/dp_10"
          >
 
          <RelativeLayout
@@ -19,9 +19,9 @@
                  android:background="#1c2243"
              >
              <ImageView
-                 android:layout_width="100dp"
-                 android:layout_height="100dp"
-                 android:layout_marginLeft="15dp"
+                 android:layout_width="@dimen/dp_80"
+                 android:layout_height="@dimen/dp_80"
+                 android:layout_marginLeft="@dimen/dp_10"
                  android:layout_centerVertical="true"
                  android:id="@+id/imager5"
                  />
@@ -29,7 +29,7 @@
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:text="________"
-                 android:textSize="20sp"
+                 android:textSize="@dimen/sp_10"
                  android:textColor="#fff"
                  android:id="@+id/text_name5"
                  android:layout_marginLeft="150dp"
@@ -39,7 +39,7 @@
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:text="________"
-                 android:textSize="20sp"
+                 android:textSize="@dimen/sp_10"
                  android:textColor="#fff"
                  android:id="@+id/text_name6"
                  android:layout_marginLeft="150dp"
@@ -49,7 +49,7 @@
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:text="________"
-                 android:textSize="20sp"
+                 android:textSize="@dimen/sp_10"
                  android:textColor="#fff"
                  android:id="@+id/text_name7"
                  android:layout_marginLeft="150dp"
