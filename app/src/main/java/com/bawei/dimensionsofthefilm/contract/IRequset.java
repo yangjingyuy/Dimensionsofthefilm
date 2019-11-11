@@ -1,5 +1,7 @@
 package com.bawei.dimensionsofthefilm.contract;
 
+import com.bawei.dimensionsofthefilm.model.Area;
+import com.bawei.dimensionsofthefilm.model.AreaQuery;
 import com.bawei.dimensionsofthefilm.model.Banner;
 import com.bawei.dimensionsofthefilm.model.Data;
 import com.bawei.dimensionsofthefilm.model.Fujin;
@@ -12,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 import io.reactivex.Observable;
+import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -26,7 +29,7 @@ public interface IRequset {
     //登陆
     @FormUrlEncoded
     @POST("user/v2/login")
-    Observable<Data<Long>> login(@Header("email")String email,@Header("pwd")String pwd);
+    Observable<Data<Long>> login(@Field("email") String email, @Field("pwd") String pwd);
     //查询banner
     @GET("tool/v2/banner")
     Observable<Data<List<Banner>>> banner();
@@ -49,8 +52,12 @@ public interface IRequset {
     //查询附近影院
     @GET("cinema/v1/findNearbyCinemas")
     Observable<Data<List<Fujin>>> fujinyingyuan(@Query("page")int page, @Query("count")int count);
-
-
+    //查询区域列表
+    @GET("tool/v2/findRegionList")
+    Observable<Data<List<Area>>> findRegionList();
+    //根据区域查询影院
+    @GET("cinema/v2/findCinemaByRegion")
+    Observable<Data<List<AreaQuery>>> findCinemaByRegion (@Query("regionId") int regionId);
 
 
 

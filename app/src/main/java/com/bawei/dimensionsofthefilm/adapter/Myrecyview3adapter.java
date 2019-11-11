@@ -47,7 +47,7 @@ public class Myrecyview3adapter extends RecyclerView.Adapter<Myrecyview3adapter.
         myViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listenerhot.onClick(v,i);
+                listenerhotmy.onClick(v,i);
             }
         });
     }
@@ -68,10 +68,10 @@ public class Myrecyview3adapter extends RecyclerView.Adapter<Myrecyview3adapter.
             imageView4 = itemView.findViewById(R.id.image4);
         }
     }
-    private  OnItemClickListener listenerhot;
+    private  OnItemClickListener listenerhotmy;
 
-    public void setListenerhot(OnItemClickListener listenerhot) {
-        this.listenerhot = listenerhot;
+    public void setListenerhotmy(OnItemClickListener listenerhotmy) {
+        this.listenerhotmy = listenerhotmy;
     }
 
     //定义接口
