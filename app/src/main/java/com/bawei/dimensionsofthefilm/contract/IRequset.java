@@ -1,5 +1,7 @@
 package com.bawei.dimensionsofthefilm.contract;
 
+import com.bawei.dimensionsofthefilm.model.Area;
+import com.bawei.dimensionsofthefilm.model.AreaQuery;
 import com.bawei.dimensionsofthefilm.model.Banner;
 import com.bawei.dimensionsofthefilm.model.Data;
 import com.bawei.dimensionsofthefilm.model.Fujin;
