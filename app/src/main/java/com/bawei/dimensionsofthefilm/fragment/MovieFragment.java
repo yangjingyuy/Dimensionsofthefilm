@@ -137,7 +137,7 @@ public class MovieFragment extends BaseFragmente {
                     for (int i = 0; i < rese.size(); i++) {
                         movieId = rese.get(position).movieId;
                     }
-                   // Toast.makeText(getContext(), "点击了"+hot, Toast.LENGTH_SHORT).show();
+                   Toast.makeText(getContext(), "点击了"+movieId, Toast.LENGTH_SHORT).show();
 
                     Intent intent=new Intent(getContext(), HotShowingActivity.class);
                     intent.putExtra("hotshowing",movieId);

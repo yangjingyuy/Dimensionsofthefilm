@@ -8,6 +8,7 @@ import com.bawei.dimensionsofthefilm.model.Fujin;
 import com.bawei.dimensionsofthefilm.model.Guanzhu;
 import com.bawei.dimensionsofthefilm.model.Hot;
 import com.bawei.dimensionsofthefilm.model.Jijiangshangying;
+import com.bawei.dimensionsofthefilm.model.Particulars;
 import com.bawei.dimensionsofthefilm.model.Recommend;
 import com.bawei.dimensionsofthefilm.model.Zhengzaishangying;
 
@@ -62,6 +63,10 @@ public interface IRequset {
     //根据区域查询影院
     @GET("cinema/v2/findCinemaByRegion")
     Observable<Data<List<AreaQuery>>> findCinemaByRegion (@Query("regionId") int regionId);
+    //
+    @GET("movie/v2/findMoviesDetail")
+    Observable<Data<Particulars>> findMoviesDetail (@Query("movieId") int movieId);
+
 
 
 
