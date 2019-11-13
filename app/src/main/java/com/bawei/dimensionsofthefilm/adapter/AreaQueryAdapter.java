@@ -44,12 +44,13 @@ public class AreaQueryAdapter extends RecyclerView.Adapter<AreaQueryAdapter.area
     public void onBindViewHolder(@NonNull areaqueryHolder areaHolder, final int i) {
             areaHolder.area_query_name.setText(list.get(i).name);
 
-    /*        areaHolder.itemView.setOnClickListener(new View.OnClickListener() {
+          areaHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onActi.onActi(list.get(i).regionId);
+                     onActi.onActi(v,i);
+
                 }
-            });*/
+            });
     }
 
     @Override
@@ -71,7 +72,11 @@ public class AreaQueryAdapter extends RecyclerView.Adapter<AreaQueryAdapter.area
         }
     }
 
-/*private  OnActi onActi;
+    /**
+     *
+     */
+
+private  OnActi onActi;
 
     public void setOnActi(OnActi onActi) {
         this.onActi = onActi;
@@ -79,7 +84,7 @@ public class AreaQueryAdapter extends RecyclerView.Adapter<AreaQueryAdapter.area
 
     //定义接口
     public interface OnActi{
-        void onActi(int i);
-    }*/
+        void onActi(View v,int i);
+    }
 
 }
