@@ -1,5 +1,6 @@
 package com.bawei.dimensionsofthefilm.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,6 +19,7 @@ import com.bawei.dimensionsofthefilm.model.AreaQuery;
 import com.bawei.dimensionsofthefilm.model.Data;
 import com.bawei.dimensionsofthefilm.presenter.AreaPresenter;
 import com.bawei.dimensionsofthefilm.presenter.AreaQueryPresenter;
+import com.bawei.dimensionsofthefilm.view.XiangActivity;
 
 import java.util.List;
 
@@ -99,11 +101,25 @@ public class LocationFragment extends BaseFragmente implements DataColl<List<Are
 
     //查询区域成功
     @Override
-    public void suuess(List<Area> rese) {
+    public void suuess(final List<Area> rese) {
 
         areaAdapter.addAll(rese);
         areaAdapter.notifyDataSetChanged();
+     areaQueryAdapter.setOnActi(new AreaQueryAdapter.OnActi() {
 
+         private int regionId;
+
+         @Override
+         public void onActi(View v, int i) {
+             for (int j = 0; j <rese.size() ; j++) {
+                 regionId = rese.get(i).regionId;
+             }
+
+             Intent intent = new Intent(getContext(), XiangActivity.class);
+               intent.putExtra("put",regionId);
+             startActivity(intent);
+         }
+     });
     }
 
     //查询区域失败

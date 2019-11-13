@@ -8,6 +8,7 @@ import com.bawei.dimensionsofthefilm.model.Fujin;
 import com.bawei.dimensionsofthefilm.model.Guanzhu;
 import com.bawei.dimensionsofthefilm.model.Hot;
 import com.bawei.dimensionsofthefilm.model.Jijiangshangying;
+import com.bawei.dimensionsofthefilm.model.Paiqi;
 import com.bawei.dimensionsofthefilm.model.Recommend;
 import com.bawei.dimensionsofthefilm.model.Zhengzaishangying;
 
@@ -63,6 +64,9 @@ public interface IRequset {
     @GET("cinema/v2/findCinemaByRegion")
     Observable<Data<List<AreaQuery>>> findCinemaByRegion (@Query("regionId") int regionId);
 
+     //查询影院下的电影排期
+     @GET("cinema/v2/findCinemaScheduleList")
+    Observable<Data<List<Paiqi>>>paiqischedulelist(@Query("cinemaId")int cinemaId,@Query("page")int page,@Query("count")int count);
 
 
 }
