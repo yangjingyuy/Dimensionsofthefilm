@@ -171,9 +171,12 @@ public class MovieFragment extends BaseFragmente {
                     for (int i = 0; i <rese.size() ; i++) {
                         movieId = rese.get(position).movieId;
                     }
-                   // Toast.makeText(getContext(), "点击了"+movieId, Toast.LENGTH_SHORT).show();
+               /*    // Toast.makeText(getContext(), "点击了"+movieId, Toast.LENGTH_SHORT).show();
                     Intent intent=new Intent(getContext(), ShowActivity.class);
                     intent.putExtra("show",movieId);
+                    startActivity(intent);*/
+                    Intent intent=new Intent(getContext(), HotShowingActivity.class);
+                    intent.putExtra("hotshowing",movieId);
                     startActivity(intent);
 
                 }
@@ -204,10 +207,14 @@ public class MovieFragment extends BaseFragmente {
                     for (int i = 0; i < rese.size(); i++) {
                         movieId = rese.get(position).movieId;
                     }
-                    Toast.makeText(getContext(), "点击了"+movieId, Toast.LENGTH_SHORT).show();
+                  /*  Toast.makeText(getContext(), "点击了"+movieId, Toast.LENGTH_SHORT).show();
                     Intent intent=new Intent(getContext(), HotActivity.class);
                     intent.putExtra("hot",movieId);
+                    startActivity(intent);*/
+                    Intent intent=new Intent(getContext(), HotShowingActivity.class);
+                    intent.putExtra("hotshowing",movieId);
                     startActivity(intent);
+
 
                 }
             });
