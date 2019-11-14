@@ -111,13 +111,13 @@ public class LocationFragment extends BaseFragmente implements DataColl<List<Are
 
          @Override
          public void onActi(View v, int i) {
-             for (int j = 0; j <rese.size() ; j++) {
-                 regionId = rese.get(i).regionId;
-             }
+
 
              Intent intent = new Intent(getContext(), XiangActivity.class);
                intent.putExtra("put",regionId);
                 startActivity(intent);
+            //   intent.putExtra("put",regionId);
+             startActivity(intent);
          }
      });
     }

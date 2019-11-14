@@ -22,8 +22,14 @@ import butterknife.ButterKnife;
  */
 public class XiangActivity extends BaseActivity {
 
-        private ArrayList<Fragment> list = new ArrayList<>();
-        private ArrayList<String> listtab = new ArrayList<>();
+    @BindView(R.id.sdyanj)
+    BorderTextView sdyanj;
+    @BindView(R.id.ertong)
+    BorderTextView ertong;
+    @BindView(R.id.k)
+    BorderTextView k;
+    private ArrayList<Fragment> list = new ArrayList<>();
+    private ArrayList<String> listtab = new ArrayList<>();
     @BindView(R.id.table1)
     TabLayout table1;
     @BindView(R.id.view_pager1)
@@ -36,10 +42,12 @@ public class XiangActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+
+
         list.add(new Yyxiangq_Fragment());
         list.add(new Yypingj_Fragment());
 
-         listtab.add("影院详情");
+        listtab.add("影院详情");
         listtab.add("影院评价");
 
         viewPager1.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
