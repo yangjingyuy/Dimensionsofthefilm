@@ -22,7 +22,8 @@ public class HttpUtli {
                 .build();
         retrofit = new Retrofit.Builder()
         .client(client)
-        .baseUrl("http://mobile.bwstudent.com/movieApi/")
+          .baseUrl("http://172.17.8.100/movieApi/")
+        //.baseUrl("http://mobile.bwstudent.com/movieApi/")
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
         .build();

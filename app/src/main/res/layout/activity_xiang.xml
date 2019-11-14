@@ -53,30 +53,49 @@
                    android:layout_marginTop="150dp"
                   android:layout_marginLeft="270dp"
                   />
-            <Button
+
+            <com.bawei.dimensionsofthefilm.view.BorderTextView
                 android:layout_width="60dp"
                 android:layout_height="30dp"
+                  android:id="@+id/sdyanj"
+                android:background="@drawable/textview_border"
                 android:text="3D眼镜"
+                android:textSize="12sp"
+                android:textColor="#ff0"
                 android:layout_marginTop="145dp"
+                android:gravity="center"
                 android:layout_marginLeft="22dp"
-                android:background="#ff0"
+
                 />
-          <Button
+
+         <com.bawei.dimensionsofthefilm.view.BorderTextView
               android:layout_width="60dp"
               android:layout_height="30dp"
+             android:gravity="center"
+             android:textColor="#ff0"
+             android:id="@+id/ertong"
+             android:background="@drawable/textview_border"
               android:text="儿童优惠"
+             android:textSize="12sp"
               android:layout_marginTop="145dp"
               android:layout_marginLeft="90dp"
-              android:background="#ff0"
+
               />
-          <Button
+          <com.bawei.dimensionsofthefilm.view.BorderTextView
               android:layout_width="60dp"
               android:layout_height="30dp"
+               android:id="@+id/k"
               android:text="4K厅"
+              android:textSize="12sp"
+              android:background="@drawable/textview_border"
+              android:textColor="#ff0"
+              android:gravity="center"
               android:layout_marginTop="145dp"
               android:layout_marginLeft="160dp"
-              android:background="#ff0"
+
               />
+
+
 
       </RelativeLayout>
 
