@@ -3,12 +3,12 @@
     android:layout_width="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+
     android:layout_height="match_parent">
     <android.support.v7.widget.CardView
         android:layout_width="@dimen/dp_118"
         android:layout_height="@dimen/dp_250"
         android:layout_marginTop="20dp"
-
         app:cardCornerRadius="10dp"
         android:layout_margin="@dimen/dp_3"
         >

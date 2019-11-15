@@ -3,8 +3,9 @@
     android:layout_width="110dp"
     android:background="#141931"
     android:orientation="vertical"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
 
+    >
 
     <ImageView
         android:id="@+id/item_iv_yanyuan_photo"

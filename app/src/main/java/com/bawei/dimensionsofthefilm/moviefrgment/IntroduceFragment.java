@@ -100,15 +100,4 @@ public class IntroduceFragment extends BaseFragmente {
         }
     }
 
-    /*class dayinColl implements DataColl<List<MovieDirector>>{
-        @Override
-        public void suuess(List<MovieDirector> rese) {
-
-    }
-
-        @Override
-        public void failure(Data data) {
-
-        }
-    }*/
 }

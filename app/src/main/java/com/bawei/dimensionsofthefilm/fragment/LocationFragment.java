@@ -114,6 +114,8 @@ public class LocationFragment extends BaseFragmente implements DataColl<List<Are
 
 
              Intent intent = new Intent(getContext(), XiangActivity.class);
+               intent.putExtra("put",regionId);
+                startActivity(intent);
             //   intent.putExtra("put",regionId);
              startActivity(intent);
          }
