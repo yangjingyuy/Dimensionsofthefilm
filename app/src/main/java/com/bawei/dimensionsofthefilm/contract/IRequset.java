@@ -4,6 +4,7 @@ import com.bawei.dimensionsofthefilm.model.Area;
 import com.bawei.dimensionsofthefilm.model.AreaQuery;
 import com.bawei.dimensionsofthefilm.model.Banner;
 import com.bawei.dimensionsofthefilm.model.Data;
+import com.bawei.dimensionsofthefilm.model.Filmreview;
 import com.bawei.dimensionsofthefilm.model.LoginBean;
 import com.bawei.dimensionsofthefilm.model.Fujin;
 import com.bawei.dimensionsofthefilm.model.Guanzhu;
@@ -91,4 +92,9 @@ public interface IRequset {
     @POST("user/v2/sendOutEmailCode")
     @FormUrlEncoded
     Observable<Data>sendOutEmailCode(@Field("email")String email);
+
+    //根据电影的id查询电影评论
+    @GET("movie/v2/findAllMovieComment")
+    Observable<Data<List<Filmreview>>> findAllMovieComment(@Query("movieId")int movieId,@Query("page")int page,@Query("count") int count);
+
 }
