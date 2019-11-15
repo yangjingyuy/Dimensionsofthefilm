@@ -42,7 +42,7 @@ public class YingyuanFragment extends BaseFragmente {
     public void initView() {
 
         guanzhuPresenter = new GuanzhuPresenter(new guanzhu());
-        guanzhuPresenter.guanzhu(13775, "157352298065713775", 1, 5);
+        guanzhuPresenter.guanzhu(13775, "157381729997513775", 1, 5);
 
         linearLayoutManager = new LinearLayoutManager(getContext());
           guanzhurecyview.setLayoutManager(linearLayoutManager);

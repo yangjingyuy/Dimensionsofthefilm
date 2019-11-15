@@ -12,13 +12,13 @@
 
       <RelativeLayout
           android:layout_width="match_parent"
-          android:layout_height="190dp"
+          android:layout_height="@dimen/dp_190"
           android:orientation="vertical"
           >
           <TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:textSize="20dp"
+              android:textSize="@dimen/dp_20"
                    android:textColor="#fff"
               android:layout_marginLeft="@dimen/dp_150"
               android:layout_marginTop="@dimen/dp_30"
@@ -29,18 +29,18 @@
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                   android:text="保利国际影院 （龙旗广场店）"
-                 android:layout_marginTop="100dp"
+                 android:layout_marginTop="@dimen/dp_100"
                  android:textColor="#fff"
-                 android:textSize="15sp"
+                 android:textSize="@dimen/sp_15"
                  android:layout_marginLeft="22dp"
                  />
              <ImageView
-                 android:layout_width="30dp"
-                 android:layout_height="30dp"
+                 android:layout_width="@dimen/dp_30"
+                 android:layout_height="@dimen/dp_30"
 
                  android:src="@mipmap/name"
-                 android:layout_marginLeft="300dp"
-                 android:layout_marginTop="100dp"
+                 android:layout_marginLeft="@dimen/dp_300"
+                 android:layout_marginTop="@dimen/dp_100"
                  />
 
 
@@ -49,49 +49,49 @@
                   android:layout_height="wrap_content"
                   android:text="到这里去"
                   android:textColor="#fff"
-                  android:textSize="15sp"
-                   android:layout_marginTop="150dp"
-                  android:layout_marginLeft="270dp"
+                  android:textSize="@dimen/sp_15"
+                   android:layout_marginTop="@dimen/dp_150"
+                  android:layout_marginLeft="@dimen/dp_270"
                   />
 
             <com.bawei.dimensionsofthefilm.view.BorderTextView
-                android:layout_width="60dp"
-                android:layout_height="30dp"
+                android:layout_width="@dimen/dp_60"
+                android:layout_height="@dimen/dp_30"
                   android:id="@+id/sdyanj"
                 android:background="@drawable/textview_border"
                 android:text="3D眼镜"
-                android:textSize="12sp"
+                android:textSize="@dimen/sp_12"
                 android:textColor="#ff0"
-                android:layout_marginTop="145dp"
+                android:layout_marginTop="@dimen/dp_145"
                 android:gravity="center"
-                android:layout_marginLeft="22dp"
+                android:layout_marginLeft="@dimen/dp_22"
 
                 />
 
          <com.bawei.dimensionsofthefilm.view.BorderTextView
-              android:layout_width="60dp"
-              android:layout_height="30dp"
+              android:layout_width="@dimen/dp_60"
+              android:layout_height="@dimen/dp_30"
              android:gravity="center"
              android:textColor="#ff0"
              android:id="@+id/ertong"
              android:background="@drawable/textview_border"
               android:text="儿童优惠"
-             android:textSize="12sp"
-              android:layout_marginTop="145dp"
-              android:layout_marginLeft="90dp"
+             android:textSize="@dimen/sp_12"
+              android:layout_marginTop="@dimen/dp_145"
+              android:layout_marginLeft="@dimen/dp_90"
 
               />
           <com.bawei.dimensionsofthefilm.view.BorderTextView
-              android:layout_width="60dp"
-              android:layout_height="30dp"
+              android:layout_width="@dimen/dp_60"
+              android:layout_height="@dimen/dp_30"
                android:id="@+id/k"
               android:text="4K厅"
-              android:textSize="12sp"
+              android:textSize="@dimen/sp_12"
               android:background="@drawable/textview_border"
               android:textColor="#ff0"
               android:gravity="center"
-              android:layout_marginTop="145dp"
-              android:layout_marginLeft="160dp"
+              android:layout_marginTop="@dimen/dp_145"
+              android:layout_marginLeft="@dimen/dp_160"
 
               />
 

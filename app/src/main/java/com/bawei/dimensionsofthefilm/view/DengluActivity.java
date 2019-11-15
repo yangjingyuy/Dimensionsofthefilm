@@ -12,7 +12,9 @@ import android.widget.Toast;
 
 
 import com.bawei.dimensionsofthefilm.R;
+import com.bawei.dimensionsofthefilm.base.Base64;
 import com.bawei.dimensionsofthefilm.base.BaseActivity;
+import com.bawei.dimensionsofthefilm.base.EncryptUtil;
 import com.bawei.dimensionsofthefilm.contract.DataColl;
 import com.bawei.dimensionsofthefilm.model.Data;
 import com.bawei.dimensionsofthefilm.model.LoginBean;
@@ -71,19 +73,22 @@ public class DengluActivity extends BaseActivity {
              case R.id.dl:
                  email = emailzh.getText().toString().trim();
                  pwd1 = this.pwd.getText().toString().trim();
+                  String JmPwd= Base64.encode(pwd1.getBytes());
+        String encrypt = EncryptUtil.encrypt(JmPwd);
+                 Log.d("ttt", "onClick: "+encrypt);
+                 dengluPresenter1.reqsuetData(email,encrypt);
                    if (email.isEmpty()||pwd1.isEmpty()){
                        Toast.makeText(this, "内容不能为空", Toast.LENGTH_SHORT).show();
                    }else {
                        dl.setOnClickListener(new View.OnClickListener() {
                            @Override
                            public void onClick(View v) {
-                               Intent intent = new Intent(DengluActivity.this, YemiaoActivity.class);
-                               startActivity(intent);
+                               /*Intent intent = new Intent(DengluActivity.this, YemiaoActivity.class);
+                               startActivity(intent);*/
                            }
                        });
                    }
-      /* String JmPwd= Base64.encode(pwd.getBytes());
-        String encrypt = EncryptUtil.encrypt(JmPwd);*/
+
                  dengluPresenter1.reqsuetData(email, pwd1);
 
                  break;
