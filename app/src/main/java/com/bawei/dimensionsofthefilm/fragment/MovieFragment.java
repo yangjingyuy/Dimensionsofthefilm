@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,15 +27,14 @@ import com.bawei.dimensionsofthefilm.presenter.JijiangshangsgiPresenter;
 import com.bawei.dimensionsofthefilm.presenter.ZhengzaishangyingPresenter;
 import com.bawei.dimensionsofthefilm.view.HotActivity;
 import com.bawei.dimensionsofthefilm.view.HotShowingActivity;
-import com.bawei.dimensionsofthefilm.view.ShowActivity;
 import com.bumptech.glide.Glide;
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.stx.xhb.xbanner.XBanner;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /*时间:2019/11/6
@@ -49,6 +47,9 @@ public class MovieFragment extends BaseFragmente {
     @BindView(R.id.recy_hot)
     RecyclerView recyHot;
     Unbinder unbinder;
+    @BindView(R.id.search)
+    ImageView search;
+    Unbinder unbinder1;
 
     private View view;
     private HotAdapter hotAdapter;
@@ -97,6 +98,13 @@ public class MovieFragment extends BaseFragmente {
         zhengzaishangyingPresenter.reqsuetData(1, 5);
 
     }
+    //点击搜索
+    @OnClick(R.id.search)
+    public void onClick() {
+        Intent intent=new Intent(getContext(), HotActivity.class);
+        startActivity(intent);
+
+    }
 
     //轮播图
     class bannerColl implements DataColl<List<Banner>> {
@@ -110,7 +118,6 @@ public class MovieFragment extends BaseFragmente {
                     Glide.with(getContext()).load(rese.get(position).imageUrl).into((ImageView) view);
                 }
             });
-
         }
 
         @Override
@@ -119,7 +126,7 @@ public class MovieFragment extends BaseFragmente {
         }
     }
 
-   //正在热映电影
+    //正在热映电影
     class hotColl implements DataColl<List<Hot>> {
         @Override
         public void suuess(final List<Hot> rese) {
@@ -137,10 +144,10 @@ public class MovieFragment extends BaseFragmente {
                     for (int i = 0; i < rese.size(); i++) {
                         movieId = rese.get(position).movieId;
                     }
-                   Toast.makeText(getContext(), "点击了"+movieId, Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getContext(), "点击了" + movieId, Toast.LENGTH_SHORT).show();
 
-                    Intent intent=new Intent(getContext(), HotShowingActivity.class);
-                    intent.putExtra("hotshowing",movieId);
+                    Intent intent = new Intent(getContext(), HotShowingActivity.class);
+                    intent.putExtra("hotshowing", movieId);
                     startActivity(intent);
                 }
             });
@@ -168,15 +175,15 @@ public class MovieFragment extends BaseFragmente {
             myrecyclview.setListenerSying(new Myrecyclview.OnItemClickListener() {
                 @Override
                 public void onClick(View view, int position) {
-                    for (int i = 0; i <rese.size() ; i++) {
+                    for (int i = 0; i < rese.size(); i++) {
                         movieId = rese.get(position).movieId;
                     }
                /*    // Toast.makeText(getContext(), "点击了"+movieId, Toast.LENGTH_SHORT).show();
                     Intent intent=new Intent(getContext(), ShowActivity.class);
                     intent.putExtra("show",movieId);
                     startActivity(intent);*/
-                    Intent intent=new Intent(getContext(), HotShowingActivity.class);
-                    intent.putExtra("hotshowing",movieId);
+                    Intent intent = new Intent(getContext(), HotShowingActivity.class);
+                    intent.putExtra("hotshowing", movieId);
                     startActivity(intent);
 
                 }
@@ -189,6 +196,7 @@ public class MovieFragment extends BaseFragmente {
 
         }
     }
+
     //正在上市电影
     class zhengzaishangshi implements DataColl<List<Zhengzaishangying>> {
 
@@ -211,8 +219,8 @@ public class MovieFragment extends BaseFragmente {
                     Intent intent=new Intent(getContext(), HotActivity.class);
                     intent.putExtra("hot",movieId);
                     startActivity(intent);*/
-                    Intent intent=new Intent(getContext(), HotShowingActivity.class);
-                    intent.putExtra("hotshowing",movieId);
+                    Intent intent = new Intent(getContext(), HotShowingActivity.class);
+                    intent.putExtra("hotshowing", movieId);
                     startActivity(intent);
 
 

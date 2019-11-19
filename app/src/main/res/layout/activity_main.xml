@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/yd"
+    android:id="@+id/btn11"
     tools:context=".view.MainActivity">
     <TextView
         android:id="@+id/tv"

@@ -5,7 +5,6 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-
 /*时间:2019/11/6
 创建人:yang 
 创建人:杨靖宇*/
@@ -22,8 +21,8 @@ public class HttpUtli {
                 .build();
         retrofit = new Retrofit.Builder()
         .client(client)
-          .baseUrl("http://172.17.8.100/movieApi/")
-        //.baseUrl("http://mobile.bwstudent.com/movieApi/")
+          //.baseUrl("http://172.17.8.100/movieApi/")
+        .baseUrl("http://mobile.bwstudent.com/movieApi/")
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
         .build();

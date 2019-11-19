@@ -78,10 +78,10 @@ public class Myrecyclview extends RecyclerView.Adapter<Myrecyclview.myViewHolder
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.text_name);
-            imageView = itemView.findViewById(R.id.imager);
-            text_time = itemView.findViewById(R.id.text_time);
-            text_guankan = itemView.findViewById(R.id.text_guankan);
+            textView = itemView.findViewById(R.id.releasedmovie_tv_name);
+            imageView = itemView.findViewById(R.id.releasedmovie_iv);
+            text_time = itemView.findViewById(R.id.releasedmovie_tv_time);
+            text_guankan = itemView.findViewById(R.id.releasedmovie_tv_usernum);
         }
     }
 

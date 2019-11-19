@@ -50,8 +50,7 @@ public class ForeshowAdapter extends RecyclerView.Adapter<ForeshowAdapter.foresh
     public void onBindViewHolder(@NonNull foreshowHolder foreshowHolder, final int i) {
         ShortFilmList shortFilmList = list.get(i);
         foreshowHolder.tr.setUp(shortFilmList.videoUrl,null);
-        Glide.with(context).load(shortFilmList.videoUrl).into(foreshowHolder.tr.ivThumb);
-
+        Glide.with(context).load(shortFilmList.imageUrl).into(foreshowHolder.tr.ivThumb);
 
     }
 
