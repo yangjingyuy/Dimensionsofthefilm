@@ -9,6 +9,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -60,6 +62,7 @@ public class HotShowingActivity extends BaseActivity {
     @BindView(R.id.movie_pager)
     ViewPager moviePager;
 
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_hot_showing;
@@ -67,6 +70,7 @@ public class HotShowingActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+
 
 
 
@@ -136,5 +140,7 @@ public class HotShowingActivity extends BaseActivity {
         public void failure(Data data) {
 
         }
+
     }
+
 }

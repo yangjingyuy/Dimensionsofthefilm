@@ -74,7 +74,7 @@ public class DengluActivity extends BaseActivity {
                  email = emailzh.getText().toString().trim();
                  pwd1 = this.pwd.getText().toString().trim();
                   String JmPwd= Base64.encode(pwd1.getBytes());
-        String encrypt = EncryptUtil.encrypt(JmPwd);
+                 String encrypt = EncryptUtil.encrypt(JmPwd);
                  Log.d("ttt", "onClick: "+encrypt);
                  dengluPresenter1.reqsuetData(email,encrypt);
                    if (email.isEmpty()||pwd1.isEmpty()){

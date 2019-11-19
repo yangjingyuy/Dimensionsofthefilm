@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bawei.dimensionsofthefilm.R;
 import com.bawei.dimensionsofthefilm.model.Paiqi;
@@ -40,7 +41,9 @@ public class MyPaiqiadapter extends RecyclerView.Adapter<MyPaiqiadapter.myViewHo
 
     @Override
     public void onBindViewHolder(@NonNull MyPaiqiadapter.myViewHolder myViewHolder, int i) {
-        Glide.with(context).load(list.get(i).trailerUrl).into(myViewHolder.imageView7);
+        Glide.with(context).load(list.get(i).imageUrl).into(myViewHolder.imageView8);
+
+         myViewHolder.textView8.setText(list.get(i).name);
     }
 
     @Override
@@ -50,11 +53,13 @@ public class MyPaiqiadapter extends RecyclerView.Adapter<MyPaiqiadapter.myViewHo
     class myViewHolder extends RecyclerView.ViewHolder{
 
 
-        private final ImageView imageView7;
+        private final ImageView imageView8;
+        private final TextView textView8;
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView7 = itemView.findViewById(R.id.image7);
+            imageView8 = itemView.findViewById(R.id.image8);
+            textView8 = itemView.findViewById(R.id.text_name8);
         }
     }
 }

@@ -5,12 +5,12 @@ import android.os.Bundle;
 
 import com.bawei.dimensionsofthefilm.R;
 
-public class YuyueActivity extends AppCompatActivity {
+public class XuanzuoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_yuyue);
+        setContentView(R.layout.activity_xuanzuo);
 
 
     }
