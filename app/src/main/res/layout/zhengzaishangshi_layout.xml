@@ -46,6 +46,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/buttonyuan"
                 android:text="购票"
+
                 android:textColor="#ffffff" />
         </RelativeLayout>
 

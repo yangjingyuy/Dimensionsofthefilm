@@ -206,7 +206,7 @@
                 ></android.support.design.widget.TabLayout>
             <android.support.v4.view.ViewPager
                 android:layout_width="match_parent"
-                android:layout_height="850dp"
+                android:layout_height="@dimen/dp_500"
                 android:id="@+id/movie_pager"
                 ></android.support.v4.view.ViewPager>
 
@@ -217,31 +217,38 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         >
-        <Button
-            android:background="#e8be18"
-            android:layout_width="@dimen/dp_150"
-            android:layout_height="wrap_content"
-
-            android:layout_gravity="bottom"
-            android:text="写影评"
-            android:id="@+id/yp"
-            />
-        <Button
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/yp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+            <Button
+                android:background="#e8be18"
+                android:layout_width="@dimen/dp_150"
+                android:layout_height="wrap_content"
 
-            android:text="选座购票"
-            android:background="#e8185e"
-            android:layout_gravity="bottom"
-            />
+                android:layout_gravity="bottom"
+                android:text="写影评"
+                android:id="@+id/yp"
+                />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/yp"
+
+                android:text="选座购票"
+                android:background="#e8185e"
+                android:layout_gravity="bottom"
+                />
+
+        </LinearLayout>
+
 
     </RelativeLayout>
-
 
 
 </LinearLayout>

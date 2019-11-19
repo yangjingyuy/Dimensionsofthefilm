@@ -5,6 +5,7 @@ import com.bawei.dimensionsofthefilm.model.AreaQuery;
 import com.bawei.dimensionsofthefilm.model.Banner;
 import com.bawei.dimensionsofthefilm.model.Data;
 import com.bawei.dimensionsofthefilm.model.Filmreview;
+import com.bawei.dimensionsofthefilm.model.Inquiree;
 import com.bawei.dimensionsofthefilm.model.LoginBean;
 import com.bawei.dimensionsofthefilm.model.Fujin;
 import com.bawei.dimensionsofthefilm.model.Guanzhu;
@@ -96,5 +97,9 @@ public interface IRequset {
     //根据电影的id查询电影评论
     @GET("movie/v2/findAllMovieComment")
     Observable<Data<List<Filmreview>>> findAllMovieComment(@Query("movieId")int movieId,@Query("page")int page,@Query("count") int count);
+    //根据关键字查询电影信息
+
+    @GET("movie/v2/findMovieByKeyword")
+    Observable<Data<List<Inquiree>>> findMovieByKeyword(@Query("keyword")String keyword,@Query("page") int page,@Query("count")int count);
 
 }

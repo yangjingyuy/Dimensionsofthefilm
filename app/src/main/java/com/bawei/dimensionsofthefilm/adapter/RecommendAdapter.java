@@ -41,14 +41,18 @@ public class RecommendAdapter extends RecyclerView.Adapter <RecommendAdapter.rec
     }
 
     @Override
-    public void onBindViewHolder(@NonNull recomHolder recomHolder, int i) {
+    public void onBindViewHolder(@NonNull recomHolder recomHolder, final int i) {
         Recommend recommend = list.get(i);
         Glide.with(context).load(recommend.logo).into(recomHolder.recommed_img);
         recomHolder.recommed_name.setText(recommend.name);
         recomHolder.recommed_dz.setText(recommend.address);
-
+        recomHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClickListener.onClick(v,i);
+            }
+        });
     }
-
     @Override
     public int getItemCount() {
         return list.size();
@@ -66,4 +70,15 @@ public class RecommendAdapter extends RecyclerView.Adapter <RecommendAdapter.rec
             recommed_dz = itemView.findViewById(R.id.recommed_dz);
         }
     }
+    private OnItemClickListener onItemClickListener;
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
+
+    //定义接口
+    public interface OnItemClickListener{
+        void onClick(View view,int position);
+    }
+
     }

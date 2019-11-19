@@ -53,22 +53,13 @@ public class ZhuceActivity extends BaseActivity {
         zhucePresenter = new ZhucePresenter(new relogin());
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-
-
-    }
-
     @OnClick({R.id.Obtain, R.id.regist})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.Obtain:
                 email = user.getText().toString().trim();
                    sendOutPresenter.reqsuetData(email);
-                Toast.makeText(this, "发送成功", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "发送成功", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.dl:
@@ -102,7 +93,7 @@ public class ZhuceActivity extends BaseActivity {
 
         @Override
         public void suuess(LoginBean rese) {
-            Log.d("aaa", "suuess: "+rese.userInfo.nickName);
+           // Log.d("aaa", "suuess: "+rese.userInfo.nickName);
 
             startActivity(new Intent(getApplicationContext(),DengluActivity.class));
         }
